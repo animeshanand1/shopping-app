@@ -1,26 +1,41 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { addTotalAmount } from "../../features/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addCartItem, addItemsToCart, addTotalAmount, removeFromCart } from "../../features/productSlice";
+import {GrFormAdd} from 'react-icons/gr'
 import "./Cart.css";
 
 function Cart() {
   const { subTotal } = useSelector((state) => state.key);
   const { itemsInCart } = useSelector((state) => state.key);
   // console.log("cart", itemsInCart);
+  const dispatch=useDispatch()
+  function insideCartAction(item){
+    return dispatch=>{
+      dispatch(addCartItem())
+      dispatch(addItemsToCart(item))
+      dispatch(addTotalAmount(item))
+    }
+  }
+  function removeItems(id) {
+    dispatch(removeFromCart(id))
+    
+  }
   return (
     <div className="cart">
       {/* <h3>{subTotal}</h3> */}
       <h3>Your Cart</h3>
       <div className="cart-items">
         {itemsInCart.map((item) => (
-          <div className="checkout-cart">
+          <div className="checkout-cart" key={item._id}>
             <img src={item.image} alt="image" />
             <h3 style={{fontWeight:'400'}}><strong>${item.price}</strong></h3>
-            <button>+</button>
+            <button className="btn" onClick={()=>removeItems(item._id)}>-</button>
+            <button className="btn" onClick={()=>dispatch(insideCartAction(item))}>+</button>
           </div>
         ))}
         <div className="subtotal">
-        <h2>TOTAL:{subTotal}</h2>
+        <h2>TOTAL:{subTotal.toFixed(2)}</h2>
+        {/* <h2>TOTAL:{Math.ceil(subTotal)}</h2> */}
       </div>
       </div>
       

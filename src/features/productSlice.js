@@ -28,17 +28,24 @@ const productSlice = createSlice({
     addCartItem: (state, action) => {
       state.cartItem += 1;
     },
-   
+
     addItemsToCart: (state, action) => {
-       state.itemsInCart.push(action.payload);
+      state.itemsInCart.push(action.payload);
     },
-    addTotalAmount: (state) => {
-        let total=0
-        state.itemsInCart.forEach(item=>{
-            total+=item.price
-        })
-        state.subTotal=total
-      },
+    addTotalAmount: (state,action) => {
+        state.subTotal+=action.payload.price
+    //   let total = 0;
+    //   state.itemsInCart.forEach((item) => {
+    //     total += item.price;
+    //   });
+    //   state.subTotal = total;
+    },
+    removeFromCart: (state, action) => {
+        const index=state.itemsInCart.findIndex(item=>item._id===action.payload)
+        state.cartItem-=1
+        state.subTotal-=state.itemsInCart[index].price 
+        state.itemsInCart.splice(index,1)
+    },
   },
   extraReducers: {
     [getProducts.pending]: (state, action) => {
@@ -53,5 +60,6 @@ const productSlice = createSlice({
     },
   },
 });
-export const { addCartItem, addTotalAmount, addItemsToCart } =productSlice.actions;
+export const { addCartItem, addTotalAmount, addItemsToCart, removeFromCart } =
+  productSlice.actions;
 export default productSlice.reducer;
