@@ -1,0 +1,11 @@
+.checkout-cart{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    background-color: #e2d6d2;
+}
+.checkout-cart img{
+    width: 76px;
+    height: fit-content;
+}

@@ -1,0 +1,43 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 8px;
+    padding: 8px;
+    justify-content: space-evenly;
+    
+}
+/* .container img{
+    height: 200px;
+    object-fit: contain;
+    padding: 8px;
+   
+    border: none;
+} */
+.card{
+    margin: 7px;
+    border: 1px solid rosybrown;
+    padding: 5px;
+    flex: 30%;
+    border-radius: 20px;
+    width: 33%;
+    /* -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    border-bottom: 2px solid #ddd;
+    flex-grow: 1;
+    margin-bottom: -2px; */
+    /* padding: 2px 6px 6px; */
+    /* width: 320px; */
+}
+   
+.card img{
+    height: 180px;
+    width: 240px;
+    object-fit: contain;
+}
+
+button{
+    background-color: #fcba03;
+    border-radius: 6px;
+    padding: 4px;
+    cursor: pointer;
+}
