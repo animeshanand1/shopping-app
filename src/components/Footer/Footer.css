@@ -1,0 +1,13 @@
+.footer{
+    position: static;
+    color: white;
+    font-size: medium;
+    background-color:#131921 ;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+    margin-top: 3px;
+}

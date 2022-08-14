@@ -7,7 +7,7 @@ import "./Cart.css";
 function Cart() {
   const { subTotal } = useSelector((state) => state.key);
   const { itemsInCart } = useSelector((state) => state.key);
-  // console.log("cart", itemsInCart);
+ 
   const dispatch=useDispatch()
   function insideCartAction(item){
     return dispatch=>{
@@ -16,15 +16,16 @@ function Cart() {
       dispatch(addTotalAmount(item))
     }
   }
-  function removeItems(id) {
-    dispatch(removeFromCart(id))
+  function removeItems() {
+    dispatch(removeFromCart())
     
   }
+  
   return (
     <div className="cart">
-      {/* <h3>{subTotal}</h3> */}
+     
       <h3>Your Cart</h3>
-      <div className="cart-items">
+      <div className="cart-items" >
         {itemsInCart.map((item) => (
           <div className="checkout-cart" key={item._id}>
             <img src={item.image} alt="image" />
@@ -34,8 +35,8 @@ function Cart() {
           </div>
         ))}
         <div className="subtotal">
-        <h2>TOTAL:{subTotal.toFixed(2)}</h2>
-        {/* <h2>TOTAL:{Math.ceil(subTotal)}</h2> */}
+        <h2>TOTAL:${subTotal.toFixed(2)}</h2>
+        
       </div>
       </div>
       
