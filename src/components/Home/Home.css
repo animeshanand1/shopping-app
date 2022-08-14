@@ -6,6 +6,11 @@
     justify-content: space-evenly;
    
 }
+.home-row{
+display: flex;
+flex: 33%;
+flex-wrap: wrap;
+}
 /* .container img{
     height: 200px;
     object-fit: contain;
@@ -20,13 +25,7 @@
     flex: 30%;
     border-radius: 20px;
     width: 33%;
-    /* -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    border-bottom: 2px solid #ddd;
-    flex-grow: 1;
-    margin-bottom: -2px; */
-    /* padding: 2px 6px 6px; */
-    /* width: 320px; */
+    
 }
    
 .card img{
