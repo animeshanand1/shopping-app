@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Banner1 from "../../Banner-Images/Banner1.jpg";
+import Banner2 from "../../Banner-Images/Banner2.jpg";
 import Banner3 from "../../Banner-Images/Banner3.jpg";
 import Banner4 from "../../Banner-Images/Banner4.jpg";
 import Banner5 from "../../Banner-Images/Banner5.jpg";
@@ -17,7 +18,7 @@ import {
 import "./Home.css";
 
 function Home() {
-  const bannerImages = [Banner1, Banner3, Banner4, Banner4, Banner5, Banner6];
+  const bannerImages = [Banner1,Banner2, Banner3, Banner4, Banner5, Banner6];
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.key);
 
